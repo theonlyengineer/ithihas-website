@@ -119,6 +119,7 @@
     var prev = document.getElementById("cases-prev");
     var next = document.getElementById("cases-next");
     var bar = document.getElementById("cases-progress");
+    var controls = document.querySelector(".cases__controls");
 
     var step = function () {
       var card = track.querySelector(".case");
@@ -132,6 +133,7 @@
       if (bar) bar.style.setProperty("--p", p.toFixed(3));
       if (prev) prev.disabled = track.scrollLeft <= 2;
       if (next) next.disabled = track.scrollLeft >= max - 2;
+      if (controls) controls.hidden = max <= 2; // nothing to scroll: hide arrows + progress
     };
 
     if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: reduceMotion ? "auto" : "smooth" }); });
@@ -139,6 +141,59 @@
     track.addEventListener("scroll", syncTrack, { passive: true });
     window.addEventListener("resize", syncTrack);
     syncTrack();
+  }
+
+  /* ---- Client story cards: open the YouTube player (or the full photo) in an overlay at the clip's own shape.
+          Without JS (or with a modifier key) the poster is a plain link to YouTube. ---- */
+  var player = document.getElementById("player");
+  if (player && typeof player.showModal === "function") {
+    var playerFrame = player.querySelector(".player__frame");
+    var lastTrigger = null;
+
+    var closePlayer = function () { player.close(); };
+    player.addEventListener("close", function () {
+      playerFrame.innerHTML = ""; // stops playback
+      if (lastTrigger) lastTrigger.focus();
+    });
+    player.querySelector(".player__close").addEventListener("click", closePlayer);
+    player.addEventListener("click", function (e) { if (e.target === player) closePlayer(); }); // backdrop
+
+    // Photo cards: open the full image in the same overlay
+    document.querySelectorAll(".case__media[data-img]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        lastTrigger = link;
+        var photo = document.createElement("div");
+        photo.className = "player__photo";
+        photo.setAttribute("role", "img");
+        photo.setAttribute("aria-label", link.getAttribute("aria-label").replace(/^View photo: /, ""));
+        photo.style.backgroundImage = 'url("' + link.getAttribute("data-img") + '")';
+        player.setAttribute("data-shape", link.getAttribute("data-shape") || "square");
+        playerFrame.innerHTML = "";
+        playerFrame.appendChild(photo);
+        player.showModal();
+      });
+    });
+    player.addEventListener("contextmenu", function (e) { if (e.target.closest(".player__photo")) e.preventDefault(); });
+
+    document.querySelectorAll(".case__media[data-yt]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        lastTrigger = link;
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + link.getAttribute("data-yt") +
+          "?autoplay=1&playsinline=1&rel=0";
+        iframe.title = link.getAttribute("aria-label").replace(/^Play video: /, "");
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.allowFullscreen = true;
+        player.setAttribute("data-shape", link.getAttribute("data-shape") || "wide");
+        playerFrame.innerHTML = "";
+        playerFrame.appendChild(iframe);
+        player.showModal();
+      });
+    });
   }
 
   /* ---- Count-up for numeric stats (runs once) ---- */

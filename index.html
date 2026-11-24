@@ -14,9 +14,12 @@
     gtag('config', 'G-ZJQYTEG3MZ');
   </script>
 
-  <meta name="theme-color" content="#0d0d0f" />
-
-  <link rel="icon" href="favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#0e0e0e" />
+  <!-- The site ships its own dark/light design; ask dark-mode extensions not to re-colour it -->
+  <meta name="darkreader-lock" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <title>Coach Ithihax — Premium Personal Trainer in Calicut, Kerala</title>
   <meta name="description" content="Coach Ithihax — Premium Personal Trainer in Calicut, Kerala. 1-on-1 in-person & online fitness coaching and customized nutrition plans for all age groups. Book a free consultation." />
@@ -26,17 +29,25 @@
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ithihax.fit/" />
+  <meta property="og:site_name" content="Coach Ithihax" />
   <meta property="og:title" content="Coach Ithihax — Premium Personal Trainer in Calicut" />
-  <meta property="og:description" content="Transform Your Body, Rewrite Your History. Premium Personal Training & Customized Nutrition Plans for All Age Groups." />
+  <meta property="og:description" content="Transform your body. Rewrite your history. Premium personal training & customized nutrition plans for all age groups." />
+  <meta property="og:image" content="https://ithihax.fit/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Coach Ithihax — Transform your body. Rewrite your history." />
   <meta property="og:locale" content="en_IN" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ithihax.fit/og-image.jpg" />
 
-  <!-- Fonts -->
+  <!-- Fonts: one variable family (Archivo) — condensed for display, normal width for text -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..900&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="coach.webp" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="site.css" />
 
   <!-- Structured data for local SEO -->
   <script type="application/ld+json">
@@ -44,7 +55,11 @@
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     "name": "Coach Ithihax",
+    "url": "https://ithihax.fit/",
+    "logo": "https://ithihax.fit/icon-512.png",
+    "image": "https://ithihax.fit/og-image.jpg",
     "description": "Premium Personal Training & Customized Nutrition Plans for all age groups.",
+    "telephone": "+91-97785-06936",
     "areaServed": "Calicut, Kerala, India",
     "address": {
       "@type": "PostalAddress",
@@ -52,322 +67,412 @@
       "addressRegion": "Kerala",
       "addressCountry": "IN"
     },
+    "sameAs": ["https://instagram.com/coach_ithihax"],
     "priceRange": "₹₹"
   }
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__brand">COACH&nbsp;<span>ITHIHAX</span></a>
+  <header class="nav" id="nav" data-theme="dark">
+    <div class="nav__inner container">
+      <a href="#top" class="wordmark" aria-label="Coach Ithihax — home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="wordmark__text"><span class="wordmark__pre">Coach</span><span class="wordmark__name">Ithihax</span></span>
+      </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#results">Results</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn--sm" href="https://wa.me/919778506936" target="_blank" rel="noopener">Free Consult</a>
+      <a class="btn btn--sm" href="https://wa.me/919778506936" target="_blank" rel="noopener">
+        <span>Free consult</span>
+      </a>
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__content">
-      <p class="eyebrow">Premium 1-on-1 Coaching · Calicut, Kerala</p>
-      <h1 class="hero__title">
-        Transform Your Body,<br />
-        Rewrite Your History with<br />
-        <span class="accent">Coach Ithihax.</span>
-      </h1>
-      <p class="hero__sub">
-        Premium Personal Training &amp; Customized Nutrition Plans for All Age Groups.
-      </p>
-      <div class="hero__cta">
-        <a class="btn btn--lg" href="https://wa.me/919778506936" target="_blank" rel="noopener">
-          Book Your Free Consultation Slot
-        </a>
-        <a class="btn btn--ghost btn--lg" href="#pricing">View Packages</a>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-theme="dark">
+      <div class="hero__copy">
+        <p class="label hero__label">Premium 1-on-1 coaching <span aria-hidden="true">—</span> Calicut, Kerala</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Transform</span></span>
+          <span class="line"><span>your body.</span></span>
+          <span class="line line--muted"><span>Rewrite your</span></span>
+          <span class="line line--muted"><span>history.</span></span>
+        </h1>
+        <p class="hero__sub">
+          Premium personal training &amp; customized nutrition plans for all age groups —
+          with Coach Ithihax.
+        </p>
+        <div class="hero__cta" id="hero-cta">
+          <a class="btn btn--lg" href="https://wa.me/919778506936" target="_blank" rel="noopener">
+            <span class="wa-icon" aria-hidden="true"></span>
+            <span>Book your free consultation</span>
+          </a>
+          <a class="link-arrow" href="#pricing">View packages</a>
+        </div>
+        <ul class="stats" aria-label="At a glance">
+          <li><strong><span data-count="5">5</span>+</strong><span>Years in the field</span></li>
+          <li><strong>13–60+</strong><span>Ages coached</span></li>
+          <li><strong><span data-count="100">100</span>%</strong><span>Ethical, no-fake results</span></li>
+        </ul>
       </div>
-      <ul class="hero__stats">
-        <li><strong>5+</strong><span>Years Experience</span></li>
-        <li><strong>All Ages</strong><span>13 to 60+</span></li>
-        <li><strong>100%</strong><span>Ethical, No-Fake Results</span></li>
-      </ul>
-    </div>
-    <a href="#about" class="hero__scroll" aria-label="Scroll down">↓</a>
-  </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section about reveal" id="about">
-    <div class="about__media">
-      <div class="about__photo" role="img" aria-label="Coach Ithihax training"></div>
-      <div class="about__badge">
-        <strong>5+</strong>
-        <span>Years in the Field</span>
-      </div>
-    </div>
-    <div class="about__copy">
-      <p class="eyebrow">Meet Your Coach</p>
-      <h2>Built on Experience.<br />Driven by Integrity.</h2>
-      <p>
-        With over <strong>5 years</strong> in the fitness industry and a background in
-        gym management, Coach Ithihax has guided clients of every age and ability toward
-        real, lasting change.
-      </p>
-      <p>
-        The philosophy is simple: <strong>sustainable, ethical transformations</strong> —
-        no shortcuts, no fake before-and-afters, no crash programs. Just structured,
-        science-backed coaching built around your body, your schedule, and your goals.
-      </p>
-      <ul class="checklist">
-        <li>Gym management &amp; programming background</li>
-        <li>Specialist in safe training for seniors &amp; youth</li>
-        <li>Form-first, injury-free methodology</li>
-        <li>Custom nutrition built around real life</li>
-      </ul>
-    </div>
-  </section>
+      <figure class="hero__media">
+        <picture>
+          <source srcset="coach.webp" type="image/webp" />
+          <img src="coach.jpg" width="843" height="1264" alt="Coach Ithihax, arms crossed, in a training t-shirt" fetchpriority="high" />
+        </picture>
+        <figcaption class="label">Coach Ithihax <span aria-hidden="true">/</span> Head coach</figcaption>
+      </figure>
+    </section>
 
-  <!-- ============ RESULTS / SOCIAL PROOF ============ -->
-  <section class="section results" id="results">
-    <div class="section__head reveal">
-      <p class="eyebrow">Real Clients · Real Results</p>
-      <h2>Transformations Across Every Age</h2>
-      <p class="section__lead">
-        From teenagers building their foundation to clients in their 60s rewriting what's
-        possible — strength knows no age, gender, or limit.
-      </p>
-    </div>
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" data-theme="light">
+      <div class="container">
+        <div class="about__head">
+          <div>
+            <p class="label section__num reveal"><span>01</span> Meet your coach</p>
+            <h2 class="display reveal">Coaching you<br />can trust.</h2>
+          </div>
+          <p class="lead reveal">Certified personal trainer in Calicut, coaching teens to seniors in person and online — with plans built around real lives, not crash diets.</p>
+        </div>
 
-    <div class="carousel reveal" aria-roledescription="carousel" aria-label="Client transformations">
-      <button class="carousel__arrow carousel__arrow--prev" aria-label="Previous">‹</button>
-
-      <div class="carousel__track" id="track">
-        <!-- Card 1: Before/After image split -->
-        <article class="card slide" aria-roledescription="slide">
-          <div class="card__visual card__visual--split">
-            <div class="split split--before">
-              <span class="split__tag">Before</span>
+        <div class="about__grid">
+          <p class="about__pull reveal">
+            No shortcuts. No fake before-and-afters. No crash programs.
+          </p>
+          <div class="about__story reveal">
+            <p>
+              <strong>5+ years</strong> in fitness and gym management. Sustainable, ethical,
+              science-backed coaching built around your body, your schedule and your goals.
+            </p>
+            <ol class="principles">
+              <li><span>01</span>Gym management &amp; programming background</li>
+              <li><span>02</span>Specialist in safe training for seniors &amp; youth</li>
+              <li><span>03</span>Form-first, injury-free methodology</li>
+              <li><span>04</span>Custom nutrition built around real life</li>
+            </ol>
+          </div>
+          <div class="about__creds" data-theme="dark">
+            <div class="about__creds-head reveal">
+              <p class="label">Credentials</p>
+              <h3 class="about__creds-title">Certified. Accredited.</h3>
             </div>
-            <div class="split split--after">
-              <span class="split__tag">After</span>
+            <!-- Credentials with issuer logos (official files from each issuer's site, img/logos/).
+                 Certificate scans are deliberately not published (DOB, ID numbers, signatures, QR codes). -->
+            <div class="about__body reveal">
+              <ul class="creds__grid" aria-label="Certifications">
+                <li class="cred">
+                  <div class="cred__logo">
+                    <img src="img/logos/k11-crest.webp" width="288" height="283" alt="K11 School of Fitness Sciences crest" loading="lazy" decoding="async" />
+                  </div>
+                  <h4 class="cred__title">Diploma in Personal Training</h4>
+                  <p class="cred__meta label">K11 · Distinction</p>
+                </li>
+                <li class="cred">
+                  <div class="cred__logo">
+                    <img src="img/logos/skill-india.svg" width="129" height="108" alt="Skill India" loading="lazy" decoding="async" />
+                    <img src="img/logos/nsdc.svg" width="620" height="596" alt="NSDC" loading="lazy" decoding="async" />
+                  </div>
+                  <h4 class="cred__title">Fitness Trainer, NSQF Level 4</h4>
+                  <p class="cred__meta label">Skill India · NSDC</p>
+                </li>
+                <li class="cred">
+                  <div class="cred__logo">
+                    <img src="img/logos/pd-approval.png" width="175" height="54" alt="PD:Approval" loading="lazy" decoding="async" />
+                  </div>
+                  <h4 class="cred__title">Accredited PT Diploma</h4>
+                  <p class="cred__meta label">PD:Approval</p>
+                </li>
+                <li class="cred">
+                  <div class="cred__logo">
+                    <img src="img/logos/surf-life-saving.webp" width="288" height="286" alt="Surf Life Saving — Australian Lifesaving Academy" loading="lazy" decoding="async" />
+                  </div>
+                  <h4 class="cred__title">Trauma Response</h4>
+                  <p class="cred__meta label">Lifesaving Academy NSW</p>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="card__body">
-            <span class="card__profile">The Mentor / Brother</span>
-            <h3>Ultimate Body Transformation</h3>
-            <p>A complete fat loss + muscle gain journey — proof of what consistency and the right plan can build.</p>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="section results" id="results" data-theme="dark">
+      <div class="container results__head">
+        <div>
+          <p class="label section__num reveal"><span>02</span> Real clients · Real results</p>
+          <h2 class="display reveal">Proven results,<br />at every age.</h2>
+        </div>
+        <p class="lead reveal">
+          From teenagers building their foundation to clients in their 60s rewriting what's
+          possible — strength knows no age, gender, or limit.
+        </p>
+      </div>
+
+      <div class="cases reveal" role="region" aria-label="Client results" tabindex="0" id="cases">
+        <article class="case">
+          <a class="case__media" href="img/clients/transformation-1280.webp" data-img="img/clients/transformation-1280.webp" data-shape="square"
+            aria-label="View photo: before and after — ultimate body transformation">
+            <img src="img/clients/transformation-640.webp" alt="" loading="lazy" decoding="async" />
+            <span class="case__play case__play--zoom" aria-hidden="true"></span>
+          </a>
+          <h3>Ultimate body transformation</h3>
+          <p>A complete fat loss + muscle gain journey — proof of what consistency and the right plan can build.</p>
         </article>
 
-        <!-- Card 2: Senior video -->
-        <article class="card slide" aria-roledescription="slide">
-          <div class="card__visual">
-            <div class="video-embed" data-video="https://www.youtube.com/embed/VIDEO_ID_SENIOR" aria-label="Play senior client video">
-              <button class="video-embed__play" aria-label="Play video">▶</button>
-              <span class="card__age">Age 60</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <span class="card__profile">Senior Client</span>
-            <h3>Age Is Just a Number</h3>
-            <p>From struggling with a single push-up to smashing 10 continuous reps — safely and confidently.</p>
-          </div>
+        <article class="case">
+          <a class="case__media" href="https://www.youtube.com/shorts/BjIXdx7nzcM" target="_blank" rel="noopener" data-yt="BjIXdx7nzcM" data-shape="short"
+            aria-label="Play video: Strength training doesn’t stop growth">
+            <img src="img/videos/pullups-youth.webp" alt="" loading="lazy" decoding="async" />
+            <span class="case__play" aria-hidden="true"></span>
+          </a>
+          <h3>Strength training doesn’t stop growth</h3>
+          <p>Safe, structured bodyweight training designed specifically for young athletes.</p>
         </article>
 
-        <!-- Card 3: Female client video -->
-        <article class="card slide" aria-roledescription="slide">
-          <div class="card__visual">
-            <div class="video-embed" data-video="https://www.youtube.com/embed/VIDEO_ID_FEMALE" aria-label="Play female client video">
-              <button class="video-embed__play" aria-label="Play video">▶</button>
-              <span class="card__age">Age 43</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <span class="card__profile">Female Client</span>
-            <h3>Strength Knows No Gender or Age</h3>
-            <p>Crushing 2 strict pull-ups and 25 push-ups — rewriting her own definition of strong.</p>
-          </div>
+        <article class="case">
+          <a class="case__media" href="https://www.youtube.com/shorts/oRsrpTvmsmw" target="_blank" rel="noopener" data-yt="oRsrpTvmsmw" data-shape="short"
+            aria-label="Play video: Don’t let age define your limits">
+            <img src="img/videos/dips-female.webp" alt="" loading="lazy" decoding="async" />
+            <span class="case__play" aria-hidden="true"></span>
+          </a>
+          <h3>Don’t let age define your limits</h3>
+          <p>Train smart. Get strong. Stay strong. Strength knows no gender or age.</p>
         </article>
 
-        <!-- Card 4: Youth video -->
-        <article class="card slide" aria-roledescription="slide">
-          <div class="card__visual">
-            <div class="video-embed" data-video="https://www.youtube.com/embed/VIDEO_ID_YOUTH" aria-label="Play youth client video">
-              <button class="video-embed__play" aria-label="Play video">▶</button>
-              <span class="card__age">Age 13</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <span class="card__profile">Youth Client</span>
-            <h3>Building a Strong Foundation</h3>
-            <p>Safe, structured bodyweight functional training designed specifically for young athletes.</p>
-          </div>
+        <article class="case">
+          <a class="case__media" href="https://youtu.be/IpDDHVN3VEo" target="_blank" rel="noopener" data-yt="IpDDHVN3VEo" data-shape="wide"
+            aria-label="Play video: Age is just a number">
+            <img src="img/videos/pushups-senior-640.webp" alt="" loading="lazy" decoding="async" />
+            <span class="case__play" aria-hidden="true"></span>
+          </a>
+          <h3>Age is just a number</h3>
+          <p>From struggling with a single push-up to continuous reps — safely and confidently.</p>
         </article>
       </div>
 
-      <button class="carousel__arrow carousel__arrow--next" aria-label="Next">›</button>
-    </div>
-    <div class="carousel__dots" id="dots" aria-hidden="true"></div>
-  </section>
-
-  <!-- ============ PRICING ============ -->
-  <section class="section pricing" id="pricing">
-    <div class="section__head reveal">
-      <p class="eyebrow">Coaching Packages</p>
-      <h2>Find the Plan That Fits Your Goals</h2>
-      <p class="section__lead">Transparent pricing. No hidden fees. Pick a tier and we'll handle the rest over WhatsApp.</p>
-    </div>
-
-    <div class="tabs reveal" role="tablist" aria-label="Pricing tiers">
-      <button class="tab is-active" role="tab" aria-selected="true" data-tab="offline">Offline · In-Person</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="online">Online · Remote</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="plans">Standalone Plans</button>
-    </div>
-
-    <!-- OFFLINE -->
-    <div class="plans is-active" id="offline" role="tabpanel">
-      <article class="plan">
-        <h3 class="plan__name">Premium Standard</h3>
-        <p class="plan__price">₹9,500<span>/ 14 Sessions</span></p>
-        <ul class="plan__features">
-          <li>1-on-1 intensive coaching</li>
-          <li>Hands-on form correction</li>
-          <li>Personalized progression</li>
-          <li>Nutrition guidance</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Premium%20Standard%20package" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-
-      <article class="plan plan--featured">
-        <span class="plan__tag">Most Popular</span>
-        <h3 class="plan__name">Ultimate Consistency</h3>
-        <p class="plan__price">₹13,000<span>/ 21 Sessions</span></p>
-        <ul class="plan__features">
-          <li>Everything in Premium Standard</li>
-          <li>Result-oriented tracking</li>
-          <li>Higher session volume</li>
-          <li>Priority scheduling</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Ultimate%20Consistency%20package" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-
-      <article class="plan">
-        <h3 class="plan__name">Couple Package</h3>
-        <p class="plan__price">₹17,000<span>/ 14 Sessions</span></p>
-        <ul class="plan__features">
-          <li>Train together, stay healthy together</li>
-          <li>Two participants</li>
-          <li>Shared motivation &amp; accountability</li>
-          <li>Form correction for both</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Couple%20Package" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-
-      <article class="plan">
-        <h3 class="plan__name">Group Sessions</h3>
-        <p class="plan__price">₹4,500<span>/ head · 12 Sessions</span></p>
-        <ul class="plan__features">
-          <li>Energetic small-group training</li>
-          <li>Cost-effective per head</li>
-          <li>Community accountability</li>
-          <li><em>Minimum 4 members per batch</em></li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20Group%20Sessions" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-    </div>
-
-    <!-- ONLINE -->
-    <div class="plans" id="online" role="tabpanel" hidden>
-      <article class="plan">
-        <h3 class="plan__name">Flexible Plan</h3>
-        <p class="plan__price">₹8,000<span>/ 14 Sessions</span></p>
-        <ul class="plan__features">
-          <li>Virtual assessment</li>
-          <li>Weekly plan adjustments</li>
-          <li>Train on your schedule</li>
-          <li>Remote form feedback</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Flexible%20Online%20Plan" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-
-      <article class="plan plan--featured">
-        <span class="plan__tag">Best Value</span>
-        <h3 class="plan__name">Transformation Plan</h3>
-        <p class="plan__price">₹11,000<span>/ 21 Sessions</span></p>
-        <ul class="plan__features">
-          <li>High-accountability coaching</li>
-          <li>Frequent check-ins</li>
-          <li>Detailed progress tracking</li>
-          <li>Custom nutrition adjustments</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Online%20Transformation%20Plan" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-    </div>
-
-    <!-- STANDALONE PLANS -->
-    <div class="plans" id="plans" role="tabpanel" hidden>
-      <article class="plan">
-        <h3 class="plan__name">Standard Customized Plan</h3>
-        <p class="plan__price">₹2,000<span>/ 24 Days</span></p>
-        <ul class="plan__features">
-          <li>Fully customized routine</li>
-          <li>2 check-ins per month</li>
-          <li>Tailored to your goals</li>
-          <li>Self-paced</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Standard%20Customized%20Plan" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-
-      <article class="plan plan--featured">
-        <span class="plan__tag">High Accountability</span>
-        <h3 class="plan__name">Premium Accountability Plan</h3>
-        <p class="plan__price">₹3,000<span>/ 24 Days</span></p>
-        <ul class="plan__features">
-          <li>Fully customized routine</li>
-          <li>Daily check-ins</li>
-          <li>Continuous progress tracking</li>
-          <li>Maximum accountability</li>
-        </ul>
-        <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Premium%20Accountability%20Plan" target="_blank" rel="noopener">Choose Plan</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============ FINAL CTA / FOOTER ============ -->
-  <section class="cta-band reveal" id="contact">
-    <h2>Ready to Start Your Journey?</h2>
-    <p>Your free consultation is one message away. Let's build the plan that finally works.</p>
-    <a class="btn btn--lg btn--whatsapp" href="https://wa.me/919778506936" target="_blank" rel="noopener">
-      <span class="wa-icon" aria-hidden="true"></span> Chat with Coach
-    </a>
-  </section>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="nav__brand">COACH&nbsp;<span>ITHIHAX</span></span>
-        <p>Premium personal training &amp; nutrition coaching for every age.</p>
+      <div class="container cases__controls">
+        <div class="cases__progress" aria-hidden="true"><span id="cases-progress"></span></div>
+        <div class="cases__arrows">
+          <button class="icon-btn" type="button" id="cases-prev" aria-label="Previous video" aria-controls="cases">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <button class="icon-btn" type="button" id="cases-next" aria-label="Next video" aria-controls="cases">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
       </div>
-      <div class="footer__meta">
-        <a href="https://instagram.com/coach_ithihax" target="_blank" rel="noopener" class="footer__social">
-          <span class="ig-icon" aria-hidden="true"></span> @coach_ithihax
-        </a>
-        <a href="tel:+919778506936" class="footer__phone">📞 +91 97785 06936</a>
-        <p class="footer__loc">📍 Calicut, Kerala, India</p>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section pricing" id="pricing" data-theme="light">
+      <div class="container">
+        <div class="pricing__head">
+          <div>
+            <p class="label section__num reveal"><span>03</span> Coaching packages</p>
+            <h2 class="display reveal">Find the plan that<br />fits your goals.</h2>
+          </div>
+          <p class="lead reveal">Transparent pricing. No hidden fees. Pick a tier and we'll handle the rest over WhatsApp.</p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Pricing tiers">
+          <button class="tab is-active" role="tab" id="tab-offline" aria-selected="true" aria-controls="offline" data-tab="offline">Offline · In-person</button>
+          <button class="tab" role="tab" id="tab-online" aria-selected="false" aria-controls="online" data-tab="online" tabindex="-1">Online · Remote</button>
+          <button class="tab" role="tab" id="tab-plans" aria-selected="false" aria-controls="plans" data-tab="plans" tabindex="-1">Standalone plans</button>
+        </div>
+
+        <!-- OFFLINE -->
+        <div class="plans is-active" id="offline" role="tabpanel" aria-labelledby="tab-offline">
+          <article class="plan">
+            <h3 class="plan__name">Premium Standard</h3>
+            <p class="plan__price" style="--n:14">₹9,500<span>14 sessions</span></p>
+            <ul class="plan__features">
+              <li>1-on-1 intensive coaching</li>
+              <li>Hands-on form correction</li>
+              <li>Personalized progression</li>
+              <li>Nutrition guidance</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Premium%20Standard%20package" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+
+          <article class="plan plan--featured" data-theme="dark">
+            <p class="plan__tag label">Most popular</p>
+            <h3 class="plan__name">Ultimate Consistency</h3>
+            <p class="plan__price" style="--n:21">₹13,000<span>21 sessions</span></p>
+            <ul class="plan__features">
+              <li>Everything in Premium Standard</li>
+              <li>Result-oriented tracking</li>
+              <li>Higher session volume</li>
+              <li>Priority scheduling</li>
+            </ul>
+            <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Ultimate%20Consistency%20package" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+
+          <article class="plan">
+            <h3 class="plan__name">Couple Package</h3>
+            <p class="plan__price" style="--n:14; --rows:2">₹17,000<span>14 sessions · 2 people</span></p>
+            <ul class="plan__features">
+              <li>Train together, stay healthy together</li>
+              <li>Two participants</li>
+              <li>Shared motivation &amp; accountability</li>
+              <li>Form correction for both</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Couple%20Package" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+
+          <article class="plan">
+            <h3 class="plan__name">Group Sessions</h3>
+            <p class="plan__price" style="--n:12">₹4,500<span>per head · 12 sessions</span></p>
+            <ul class="plan__features">
+              <li>Energetic small-group training</li>
+              <li>Cost-effective per head</li>
+              <li>Community accountability</li>
+              <li class="is-note">Minimum 4 members per batch</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20Group%20Sessions" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+        </div>
+
+        <!-- ONLINE -->
+        <div class="plans" id="online" role="tabpanel" aria-labelledby="tab-online" hidden>
+          <article class="plan">
+            <h3 class="plan__name">Flexible Plan</h3>
+            <p class="plan__price" style="--n:14">₹8,000<span>14 sessions</span></p>
+            <ul class="plan__features">
+              <li>Virtual assessment</li>
+              <li>Weekly plan adjustments</li>
+              <li>Train on your schedule</li>
+              <li>Remote form feedback</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Flexible%20Online%20Plan" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+
+          <article class="plan plan--featured" data-theme="dark">
+            <p class="plan__tag label">Best value</p>
+            <h3 class="plan__name">Transformation Plan</h3>
+            <p class="plan__price" style="--n:21">₹11,000<span>21 sessions</span></p>
+            <ul class="plan__features">
+              <li>High-accountability coaching</li>
+              <li>Frequent check-ins</li>
+              <li>Detailed progress tracking</li>
+              <li>Custom nutrition adjustments</li>
+            </ul>
+            <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Online%20Transformation%20Plan" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+        </div>
+
+        <!-- STANDALONE PLANS -->
+        <div class="plans" id="plans" role="tabpanel" aria-labelledby="tab-plans" hidden>
+          <article class="plan">
+            <h3 class="plan__name">Standard Customized Plan</h3>
+            <p class="plan__price" style="--n:24">₹2,000<span>24 days</span></p>
+            <ul class="plan__features">
+              <li>Fully customized routine</li>
+              <li>2 check-ins per month</li>
+              <li>Tailored to your goals</li>
+              <li>Self-paced</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Standard%20Customized%20Plan" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+
+          <article class="plan plan--featured" data-theme="dark">
+            <p class="plan__tag label">High accountability</p>
+            <h3 class="plan__name">Premium Accountability Plan</h3>
+            <p class="plan__price" style="--n:24">₹3,000<span>24 days</span></p>
+            <ul class="plan__features">
+              <li>Fully customized routine</li>
+              <li>Daily check-ins</li>
+              <li>Continuous progress tracking</li>
+              <li>Maximum accountability</li>
+            </ul>
+            <a class="btn btn--block" href="https://wa.me/919778506936?text=Hi%20Coach%2C%20I'm%20interested%20in%20the%20Premium%20Accountability%20Plan" target="_blank" rel="noopener"><span>Choose plan</span></a>
+          </article>
+        </div>
       </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta" id="contact" data-theme="dark">
+      <div class="cta__media" aria-hidden="true">
+        <img src="img/kettlebell-960.webp" srcset="img/kettlebell-960.webp 960w, img/kettlebell-1672.webp 1672w"
+          sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="container">
+        <p class="label section__num reveal"><span>04</span> Start today</p>
+        <h2 class="cta__title reveal">Ready to start<br />your journey?</h2>
+        <div class="cta__row reveal">
+          <p class="lead">Your free consultation is one message away. Let's build the plan that finally works.</p>
+          <a class="btn btn--lg" href="https://wa.me/919778506936" target="_blank" rel="noopener">
+            <span class="wa-icon" aria-hidden="true"></span>
+            <span>Chat with Coach</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-theme="dark">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="logo-mark logo-mark--lg" aria-hidden="true"></span>
+          <p class="footer__tagline">Premium personal training &amp; nutrition coaching for every age.</p>
+        </div>
+        <ul class="footer__contact">
+          <li>
+            <a href="https://instagram.com/coach_ithihax" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" class="fill" /></svg>
+              @coach_ithihax
+            </a>
+          </li>
+          <li>
+            <a href="tel:+919778506936">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg>
+              +91 97785 06936
+            </a>
+          </li>
+          <li>
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
+              Calicut, Kerala, India
+            </span>
+          </li>
+        </ul>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#results">Results</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <p class="footer__mark" aria-hidden="true">Ithihax</p>
+      <p class="footer__copy">© <span id="year">2026</span> Coach Ithihax. All rights reserved.</p>
     </div>
-    <p class="footer__copy">© <span id="year"></span> Coach Ithihax. All rights reserved.</p>
   </footer>
 
-  <!-- Sticky WhatsApp CTA (mobile-first) -->
-  <a class="sticky-wa" href="https://wa.me/919778506936" target="_blank" rel="noopener" aria-label="Book your free consultation on WhatsApp">
+  <!-- Overlay for the client story cards: YouTube player or full photo (filled by site.js) -->
+  <dialog class="player" id="player" aria-label="Client result" data-theme="dark">
+    <button class="icon-btn player__close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+    <div class="player__frame"></div>
+  </dialog>
+
+  <!-- Sticky WhatsApp CTA — appears once the hero CTA scrolls away -->
+  <a class="sticky-cta" id="sticky-cta" href="https://wa.me/919778506936" target="_blank" rel="noopener" aria-label="Book your free consultation on WhatsApp">
     <span class="wa-icon" aria-hidden="true"></span>
-    <span class="sticky-wa__label">Book Free Consult</span>
+    <span class="sticky-cta__label">Book free consult</span>
   </a>
 
-  <script src="script.js" defer></script>
+  <script src="site.js" defer></script>
 </body>
 </html>
